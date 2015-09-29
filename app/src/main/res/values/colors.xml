@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Theme colors-->
+    <color name="primary">#009688</color>
+    <color name="primary_dark">#00796B</color>
+    <color name="primary_light">#B2DFDB</color>
+    <color name="accent">#00BCD4</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#B6B6B6</color>
+
+    <color name="windowBG">#FF5F5F5F</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="textColorPrimary">#5f5f5f</color>
+    <color name="primary_text">#212121</color>
+    <!--<color name="primary_text">#FF0000</color>-->
+    <color name="secondary_text">#727272</color>
+    <color name="semi_white_text">#FFFFFF</color>
+    <!--<color name="secondary_text">#C2185B</color>-->
+</resources>

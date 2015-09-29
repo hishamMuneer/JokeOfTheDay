@@ -1,0 +1,12 @@
+<resources>
+    <!-- Basically Nexus 7 -->
+
+    <!-- Three "default" textSize values:
+    TextAppearance.Small - 14sp
+    TextAppearance.Medium - 18sp
+    TextAppearance.Large - 22sp -->
+
+    <dimen name="text_default">18sp</dimen>
+    <dimen name="text_quote_splash">24sp</dimen>
+    <dimen name="text_quote_brand">90sp</dimen>
+</resources>

@@ -1,0 +1,11 @@
+<resources>
+    <!-- If the smallestWidth of this device is atleast 720dp then this dimen will show;
+    the device's smallestWidth does not change when the screen's orientation changes. -->
+
+    <!--Basically Nexus 9, 10-->
+
+    <dimen name="text_default">22sp</dimen>
+    <dimen name="text_quote_splash">30sp</dimen>
+    <dimen name="text_quote_brand">120sp</dimen>
+
+</resources>

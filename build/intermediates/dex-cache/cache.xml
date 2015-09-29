@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="29ebc7e04d877062317c8cc0e68b20f0c1fcda66">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-917f6fa3d02306500fee510e8e26bd18ce621a16.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="06a42becc33232ec0ee125161da68c1829c9f8fd">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-95aacfa092f4bd39d65f88385bae3f1b7c87988d.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-cf400cb736053c14513aef73535da6841c20c971.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f02127a85abd52a2cd526d4c2409f21969f80ee8">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-a1b5710ce076c12c461bba212b206b5c761764c2.jar" />
+    </item>
+    <item
+        jar="C:\Users\hisham\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-8c322e7ff49079dcfa41829a5803686b0fee81f3.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a78183f30e769a98ab4820794f597763088d3065">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-18695ad503827043f4958704274c6e43359bcf94.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1a6411087ab88ce5542f593e63a2752b6b0d6f1a">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-87a79c28cba941d87124e68f7f08b25887b3dc8e.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e7b35244f50663b3f8d150714bca9ecd7a290da1">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-c42acd407f6598c58d2b56db7589f3d2e71cdb02.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ba207be21987c11b37d9f8faa08ed6e722569f30">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-e6a5969182d3556e12c62a23bc2032295e9330bb.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ba3df4eb0a630d7de294f0e48d3f9267d279b784">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-3e04c2bb1c747d14b397baef4585a83bc2a4b9b7.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="68c140702c7242d914655bcb3164d9e8c45b84cb">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-35deba2caeed145300bc4e62dfb03a808c357fac.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6440e5e5cfe368f9bff3c537fb8988048069cb33">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-fa208f39d797b5b78b20290bc2885228f31152d1.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-616943d60329ce6679dedefb05fd2d29f4cc8207.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-910b212ad60398e96d667cc7053cbc59dfc13fa2.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="97f7e239e86ef994de894818fdd8a71d2e89d6aa">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-b27f7ba3da6a1b1e7df343800ca4e03c8c95e39c.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f44d03c138cb6488fdbaa65e3a7e5878861a56d8">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-b2945b8e38d1c8586139fd0a95e6fd89e7ecfcf9.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="272bc5d7063f24bc3a33ea1d318cde8f31f5ec4c">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-ec6bfde6c5032dbd964e82f0b802ba68e7d9be02.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-6d2f6a0c70f806c2677da04dd0bd6accd0b86d8f.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-d81fcbcdace38960bb07d50603a0302b5540ac74.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="69dd177337ead693c408c8dddc9546bb6f1244fa">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-a1b6f5a09b9a92f4a36a27d4228b87c7f1462b6b.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.android.support\palette-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="060b30a619b8d3ba053e1d7dc08b3fdf0dd81530">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-8c918f0b00d966a60028ec4bc1472cde796fda81.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a172852a35ff919e85b9b7f14bbc15c5bee25520">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-9cff67a7d2fb6665386ceb95dce675cfe4abc5bf.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1e98ef3f124bb7a11f8575f9ff5dfea330b61b6f">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-ba76e246af762c5be7445480ae9abbb4857c9239.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6836d188602ec5382d1967c58b00960eb8ff8773">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-4df55ffcf2c4752a4fdf930759001fd1e202f0e4.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8e3a972f28b8bae817e382257ba177a31bcadbbc">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-196a7ed0d032d1958b7dab2d399c92ab0db0a82b.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a1372c17fccacca753d3951d3ad820571cbce075">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-875fa74865bf361f69d5c6870453c3273d28af84.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8d736fefa22d896e84a268354b3ed48a42663150">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-a5d56e3c683c704cc18aeb0da705eea224e569ab.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d405025c600055237c171a0bbabaa49d69696573">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-4cf76b9c87f5d2bf7eb4227c7b5c327985f5fd3d.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="63ec6e9f4fe5482a7447d0f3091b8e543a02554c">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-f8a798ca47f7bcfd02a1ad388a223d5a64092ef4.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="02bac2dc792d78241077861566f2c82da955e7fa">
+        <dex dex="D:\AndroidStudioProjects\JokeOfTheDay\app\build\intermediates\pre-dexed\debug\classes-4741f12498d4bbc37ef56426414a7b65620da1c4.jar" />
+    </item>
+
+</items>
