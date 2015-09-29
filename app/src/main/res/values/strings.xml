@@ -48,7 +48,7 @@
     <string name="splash_quote_small">We just don\'t build a business. We build a</string>
     <string name="title_activity_activity_our_story">ActivityOurStory</string>
     <string name="out_story_content"><![CDATA[SAAR Advertising & Marketing, an initiative by Syed Ali was built in 2010 and is now recognized as a media & market management firm. \nOur team’s endeavour is to generate creative solutions to the needs of our client. \nWe deliver to create a b-usiness to be a B-RAND. \nSAAR is a consortium with specialized services in- 360 degree media & brand management with master package in Branding and MICE (Meeting, Incentives, Conventions and Expositions) Events. \nWhether you are a digital publisher, online retailer, or have an exceptional proposition that could be bundled with another offering; we can help you select, secure and drive your partnership marketing activities to achieve the results you are looking for.]]></string>
-    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_home">Home</string>
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

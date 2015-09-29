@@ -5,12 +5,15 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:fitsSystemWindows="true">
-    <ListView
-        android:id="@+id/myListView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </ListView>
+    <!--Whatever you want to display in the middle goes here-->
+    <!-- The main content view -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- ENDS - Whatever you want to display in the middle goes here-->
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
