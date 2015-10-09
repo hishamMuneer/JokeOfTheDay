@@ -1,0 +1,53 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/card_margin"
+    tools:context="com.hisham.jokeoftheday.ui.SubmitAJokeFragment">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/etJokeTitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:id="@+id/etJokeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Joke Title (Optional)"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/etJokeTextLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etJokeTitleLayout"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:id="@+id/etJokeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:hint="Enter your Joke"
+            android:ems="10"
+            android:minLines="5"
+            android:maxLines="5"
+            android:gravity="bottom"
+            android:inputType="textMultiLine" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etJokeTextLayout"
+        android:layout_centerHorizontal="true"
+        android:text="Submit" />
+</RelativeLayout>

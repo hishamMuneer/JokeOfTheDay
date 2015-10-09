@@ -3,7 +3,9 @@ package com.hisham.jokeoftheday.ui;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.net.Uri;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -174,9 +176,10 @@ import com.hisham.jokeoftheday.R;
  *
  */
 
-public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragment.OnFragmentInteractionListener {
+public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragment.OnFragmentInteractionListener, SubmitAJokeFragment.OnFragmentInteractionListener {
 
     private DrawerLayout mDrawerLayout;
+    // IMPORTANT - see this http://www.androidhive.info/2015/09/android-material-design-working-with-tabs/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -201,6 +204,13 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
 
         fragmentTransaction.add(R.id.fragment_container, jokeOfTheDayFragment);
         fragmentTransaction.commit();
+
+
+
+//        SubmitAJokeFragment submitAJokeFragment = new SubmitAJokeFragment();
+//
+//        fragmentTransaction.add(R.id.fragment_container, submitAJokeFragment);
+//        fragmentTransaction.commit();
 
 //        ListView myListView = (ListView) findViewById(R.id.myListView);
 //        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line, objects);
