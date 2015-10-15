@@ -5,11 +5,21 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.TextInputLayout;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.hisham.jokeoftheday.R;
+import com.hisham.jokeoftheday.utils.ParseDataStructure;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +34,7 @@ public class SubmitAJokeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String TAG = SubmitAJokeFragment.class.getSimpleName().toString();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -66,11 +77,71 @@ public class SubmitAJokeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_submit_ajoke, container, false);
+        final View view = inflater.inflate(R.layout.fragment_submit_ajoke, container, false);
 
-//        TextInputLayout textInputLayout = (TextInputLayout)view.findViewById(R.id.etJokeTitleLayout);
-//        textInputLayout.setErrorEnabled(true);
-//        textInputLayout.setError("Enter");
+        final Button btnSubmit = (Button) view.findViewById(R.id.btnSubmit);
+        final EditText etJokeTitle = (EditText) view.findViewById(R.id.etJokeTitle);
+        final EditText etJokeText = (EditText) view.findViewById(R.id.etJokeText);
+        final ProgressBar progressBarSubmit = (ProgressBar) view.findViewById(R.id.progressBarSubmit);
+        final TextInputLayout etJokeTitleLayout = (TextInputLayout)view.findViewById(R.id.etJokeTitleLayout);
+        final TextInputLayout textInputLayoutJokeText = (TextInputLayout)view.findViewById(R.id.etJokeTextLayout);
+        textInputLayoutJokeText.setErrorEnabled(true);
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // if post validation is not successful, return the user to try again.
+                if(!postValidationSuccessful()){
+                    return;
+                }
+                
+                progressBarSubmit.setVisibility(View.VISIBLE);
+                btnSubmit.setVisibility(View.GONE);
+                ParseObject testObject = new ParseObject(ParseDataStructure.JokeTableName);
+                testObject.put(ParseDataStructure.JokeColJokeTitle, etJokeTitle.getText().toString());
+                testObject.put(ParseDataStructure.JokeColJokeText, etJokeText.getText().toString());
+
+                testObject.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        progressBarSubmit.setVisibility(View.GONE);
+                        btnSubmit.setVisibility(View.VISIBLE);
+                        textInputLayoutJokeText.setError("");
+                        // is e is null, means no exception, that's why successful.
+                        if(e == null){
+                            etJokeTitle.setText("");
+                            etJokeText.setText("");
+                            Log.e(TAG, "Post updated successfully");
+                            Toast.makeText(getActivity().getApplicationContext(), "Post updated successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+
+            /**
+             * Validates if all fields while posting a joke are fine
+             * @return true or false
+             */
+            private boolean postValidationSuccessful() {
+
+                if(TextUtils.isEmpty(etJokeText.getText().toString().trim())){
+                    textInputLayoutJokeText.setError("Joke can't be empty.");
+                    return false;
+                }
+
+                if(etJokeText.getText().toString().trim().length() < 10){
+                    textInputLayoutJokeText.setError("Joke can't be that small.");
+                    return false;
+                }
+                return true;
+            }
+        });
+
+
+//        TextInputLayout textInputLayoutJokeText = (TextInputLayout)view.findViewById(R.id.etJokeTitleLayout);
+//        textInputLayoutJokeText.setErrorEnabled(true);
+//        textInputLayoutJokeText.setError("Enter");
 
 
         return view;

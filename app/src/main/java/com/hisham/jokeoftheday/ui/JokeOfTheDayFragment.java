@@ -4,11 +4,23 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.hisham.jokeoftheday.R;
+import com.hisham.jokeoftheday.utils.ParseDataStructure;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +35,7 @@ public class JokeOfTheDayFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String TAG = JokeOfTheDayFragment.class.getSimpleName().toString();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -65,7 +78,39 @@ public class JokeOfTheDayFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_joke_of_the_day, container, false);
+        final View view = inflater.inflate(R.layout.fragment_joke_of_the_day, container, false);
+
+        final TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
+        final TextView tvJoke = (TextView) view.findViewById(R.id.tvJoke);
+        TextView tvSubmittedBy = (TextView) view.findViewById(R.id.tvSubmittedBy);
+        Button btnLike = (Button) view.findViewById(R.id.btnLike);
+        Button btnShare = (Button) view.findViewById(R.id.btnShare);
+        Button btnCopy = (Button) view.findViewById(R.id.btnCopy);
+        FloatingActionButton floatingButton = (FloatingActionButton) view.findViewById(R.id.floatingButton);
+
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(ParseDataStructure.JokeTableName);
+        // Retrieve the most recent ones
+        query.orderByDescending("createdAt");
+        // Only retrieve the last ten
+        query.setLimit(10);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> scoreList, ParseException e) {
+                if (e == null) {
+                    Log.i(TAG, "Retrieved " + scoreList.size() + " jokes");
+                    for (int i = 0; i < scoreList.size(); i++) {
+                        tvTitle.setText(scoreList.get(i).getString(ParseDataStructure.JokeColJokeTitle));
+                        tvJoke.setText(scoreList.get(i).getString(ParseDataStructure.JokeColJokeText));
+                        break;
+                    }
+                } else {
+                    Log.e(TAG, "Error: " + e.getMessage());
+                }
+            }
+        });
+
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

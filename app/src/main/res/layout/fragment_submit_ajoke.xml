@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Joke Title (Optional)"
+            android:singleLine="true"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
@@ -50,4 +51,13 @@
         android:layout_below="@+id/etJokeTextLayout"
         android:layout_centerHorizontal="true"
         android:text="Submit" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBarSubmit"
+        android:layout_below="@+id/etJokeTextLayout"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

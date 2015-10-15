@@ -202,16 +202,12 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         JokeOfTheDayFragment jokeOfTheDayFragment = new JokeOfTheDayFragment();
-
         fragmentTransaction.add(R.id.fragment_container, jokeOfTheDayFragment);
         fragmentTransaction.commit();
 
 
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
+
 //        SubmitAJokeFragment submitAJokeFragment = new SubmitAJokeFragment();
-//
 //        fragmentTransaction.add(R.id.fragment_container, submitAJokeFragment);
 //        fragmentTransaction.commit();
 
