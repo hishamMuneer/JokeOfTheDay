@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -179,7 +180,10 @@ import com.parse.ParseObject;
 
 public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragment.OnFragmentInteractionListener, SubmitAJokeFragment.OnFragmentInteractionListener {
 
+    private static final String TAG = HomeActivity.class.getSimpleName().toString();
     private DrawerLayout mDrawerLayout;
+    private FragmentTransaction fragmentTransaction;
+    private FragmentManager fragmentManager;
     // IMPORTANT - see this http://www.androidhive.info/2015/09/android-material-design-working-with-tabs/
 
     @Override
@@ -196,24 +200,29 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.open, R.string.close);
         mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
+
         actionBarDrawerToggle.syncState();
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentManager = getFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
 
         JokeOfTheDayFragment jokeOfTheDayFragment = new JokeOfTheDayFragment();
         fragmentTransaction.add(R.id.fragment_container, jokeOfTheDayFragment);
         fragmentTransaction.commit();
 
-
-
 //        SubmitAJokeFragment submitAJokeFragment = new SubmitAJokeFragment();
-//        fragmentTransaction.add(R.id.fragment_container, submitAJokeFragment);
-//        fragmentTransaction.commit();
+//                fragmentTransaction.add(R.id.fragment_container, submitAJokeFragment);
+//                fragmentTransaction.commit();
 
 //        ListView myListView = (ListView) findViewById(R.id.myListView);
 //        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_dropdown_item_1line, objects);
 //        myListView.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "OnStart called");
     }
 
     @Override
@@ -237,6 +246,15 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
                 }
                 return true;
             case R.id.action_settings:
+                fragmentTransaction = fragmentManager.beginTransaction();
+                SubmitAJokeFragment submitAJokeFragment = new SubmitAJokeFragment();
+                // Replace whatever is in the fragment_container view with this fragment,
+                // and add the transaction to the back stack if needed
+                fragmentTransaction.replace(R.id.fragment_container, submitAJokeFragment);
+                fragmentTransaction.addToBackStack(null);
+
+                // Commit the transaction
+                fragmentTransaction.commit();
                 return true;
         }
         return super.onOptionsItemSelected(item);
