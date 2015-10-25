@@ -20,6 +20,7 @@ import android.widget.ListView;
 
 import com.hisham.jokeoftheday.R;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 /**
  *
@@ -209,6 +210,8 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
         JokeOfTheDayFragment jokeOfTheDayFragment = new JokeOfTheDayFragment();
         fragmentTransaction.add(R.id.fragment_container, jokeOfTheDayFragment);
         fragmentTransaction.commit();
+
+
 
 //        SubmitAJokeFragment submitAJokeFragment = new SubmitAJokeFragment();
 //                fragmentTransaction.add(R.id.fragment_container, submitAJokeFragment);

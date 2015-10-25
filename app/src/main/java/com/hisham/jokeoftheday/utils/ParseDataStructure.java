@@ -9,4 +9,9 @@ public class ParseDataStructure {
     public static final String JokeColJokeText = "JokeText";
     public static final String JokeColJokeTitle= "JokeTitle";
 
+
+    public static final String LikeTableName= "Likes";
+    public static final String LikeUserID= "userID";
+    public static final String LikeJokeID= "jokeID";
+
 }

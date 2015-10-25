@@ -19,6 +19,7 @@ import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.List;
 
@@ -42,6 +43,7 @@ public class JokeOfTheDayFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private Button btnLike;
 
     /**
      * Use this factory method to create a new instance of
@@ -84,11 +86,10 @@ public class JokeOfTheDayFragment extends Fragment {
         final TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
         final TextView tvJoke = (TextView) view.findViewById(R.id.tvJoke);
         TextView tvSubmittedBy = (TextView) view.findViewById(R.id.tvSubmittedBy);
-        Button btnLike = (Button) view.findViewById(R.id.btnLike);
+        btnLike = (Button) view.findViewById(R.id.btnLike);
         Button btnShare = (Button) view.findViewById(R.id.btnShare);
         Button btnCopy = (Button) view.findViewById(R.id.btnCopy);
         FloatingActionButton floatingButton = (FloatingActionButton) view.findViewById(R.id.floatingButton);
-
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery(ParseDataStructure.JokeTableName);
         // Retrieve the most recent ones
@@ -102,6 +103,7 @@ public class JokeOfTheDayFragment extends Fragment {
                     for (int i = 0; i < scoreList.size(); i++) {
                         tvTitle.setText(scoreList.get(i).getString(ParseDataStructure.JokeColJokeTitle));
                         tvJoke.setText(scoreList.get(i).getString(ParseDataStructure.JokeColJokeText));
+                        loadLikes(scoreList.get(i));
                         break;
                     }
                 } else {
@@ -111,8 +113,29 @@ public class JokeOfTheDayFragment extends Fragment {
         });
 
 
+
+
         return view;
     }
+
+    public void loadLikes(final ParseObject parseObject){
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(ParseDataStructure.LikeTableName);
+        query.whereEqualTo(ParseDataStructure.LikeJokeID, parseObject.getObjectId());
+        query.whereEqualTo(ParseDataStructure.LikeUserID, ParseUser.getCurrentUser().getObjectId());
+        // Retrieve the most recent ones
+        query.orderByDescending("createdAt");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> scoreList, ParseException e) {
+                if (e == null) {
+                    Log.i(TAG, "Retrieved " + scoreList.size() + " like on the post : " + parseObject.getObjectId());
+                    btnLike.setText("Like (" + scoreList.size() +")");
+                } else {
+                    Log.e(TAG, "Error: " + e.getMessage());
+                }
+            }
+        });
+    }
+
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
