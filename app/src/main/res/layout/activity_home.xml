@@ -21,6 +21,6 @@
         android:layout_width="wrap_content"
         android:layout_gravity="start"
         android:fitsSystemWindows="false"
-        app:menu="@menu/menu_home"/>
+        app:menu="@menu/menu_side_nav"/>
 
 </android.support.v4.widget.DrawerLayout>

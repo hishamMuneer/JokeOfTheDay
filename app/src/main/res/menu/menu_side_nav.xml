@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.hisham.jokeoftheday.ui.HomeActivity">
+
+    <group
+        android:id="@+id/group_side_nav"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/action_submit_a_joke"
+            android:orderInCategory="100"
+            android:title="@string/post_a_joke"
+            app:showAsAction="never"
+
+            />
+
+        <item
+            android:id="@+id/action_joke_of_the_day"
+            android:orderInCategory="100"
+            android:title="@string/joke_of_the_day"
+            app:showAsAction="never"
+            android:checked="true"/>
+
+
+        <item
+            android:id="@+id/action_all_jokes"
+            android:orderInCategory="100"
+            android:title="@string/all_jokes"
+            app:showAsAction="never" />
+
+
+    </group>
+
+</menu>

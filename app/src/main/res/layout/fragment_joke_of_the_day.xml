@@ -30,9 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top"
-            android:text="JokeText  JokeText  eText   JokeText   JokeText   JokeText   JokeText   JokeText
-                 JokeText  JokeText  JokeText  JokeText  JokeText  JokeText  JokeText  JokeText  JokeText  JokeText  JokeText  JokeText
- JokeText  JokeText  JokeText  JokeText  JokeText  JokeText  JokeText  JokeText  JokeText  JokeText "
+            android:text=""
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:gravity="center"
              />

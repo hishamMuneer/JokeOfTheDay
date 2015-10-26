@@ -1,6 +1,10 @@
 package com.hisham.jokeoftheday.ui;
 
 import android.app.Activity;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -11,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hisham.jokeoftheday.R;
 import com.hisham.jokeoftheday.utils.ParseDataStructure;
@@ -44,6 +49,12 @@ public class JokeOfTheDayFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
     private Button btnLike;
+    private TextView tvTitle;
+    private TextView tvJoke;
+    private TextView tvSubmittedBy;
+    private Button btnShare;
+    private Button btnCopy;
+    private FloatingActionButton floatingButton;
 
     /**
      * Use this factory method to create a new instance of
@@ -83,28 +94,23 @@ public class JokeOfTheDayFragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_joke_of_the_day, container, false);
 
-        final TextView tvTitle = (TextView) view.findViewById(R.id.tvTitle);
-        final TextView tvJoke = (TextView) view.findViewById(R.id.tvJoke);
-        TextView tvSubmittedBy = (TextView) view.findViewById(R.id.tvSubmittedBy);
-        btnLike = (Button) view.findViewById(R.id.btnLike);
-        Button btnShare = (Button) view.findViewById(R.id.btnShare);
-        Button btnCopy = (Button) view.findViewById(R.id.btnCopy);
-        FloatingActionButton floatingButton = (FloatingActionButton) view.findViewById(R.id.floatingButton);
+        initViews(view);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery(ParseDataStructure.JokeTableName);
+        // TODO this has to be changed to retreive the most liked joke
         // Retrieve the most recent ones
         query.orderByDescending("createdAt");
-        // Only retrieve the last ten
-        query.setLimit(10);
+        // Only retrieve the last
+        query.setLimit(1);
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> scoreList, ParseException e) {
                 if (e == null) {
                     Log.i(TAG, "Retrieved " + scoreList.size() + " jokes");
-                    for (int i = 0; i < scoreList.size(); i++) {
-                        tvTitle.setText(scoreList.get(i).getString(ParseDataStructure.JokeColJokeTitle));
-                        tvJoke.setText(scoreList.get(i).getString(ParseDataStructure.JokeColJokeText));
-                        loadLikes(scoreList.get(i));
-                        break;
+                    if(scoreList.size() > 0){
+                        ParseObject parseObjectLastJoke = scoreList.get(0);
+                        tvTitle.setText(parseObjectLastJoke.getString(ParseDataStructure.JokeColJokeTitle));
+                        tvJoke.setText(parseObjectLastJoke.getString(ParseDataStructure.JokeColJokeText));
+                        // loadLikes(scoreList.get(i));
                     }
                 } else {
                     Log.e(TAG, "Error: " + e.getMessage());
@@ -118,6 +124,48 @@ public class JokeOfTheDayFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Initialize all the views used on this fragment
+     * @param view
+     */
+    private void initViews(View view) {
+        tvTitle = (TextView) view.findViewById(R.id.tvTitle);
+        tvJoke = (TextView) view.findViewById(R.id.tvJoke);
+        tvSubmittedBy = (TextView) view.findViewById(R.id.tvSubmittedBy);
+        btnLike = (Button) view.findViewById(R.id.btnLike);
+        btnShare = (Button) view.findViewById(R.id.btnShare);
+        btnShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = tvJoke.getText().toString();
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.putExtra(Intent.EXTRA_TEXT, message);
+                startActivity(Intent.createChooser(share, "Share this joke."));
+            }
+        });
+        btnCopy = (Button) view.findViewById(R.id.btnCopy);
+        btnCopy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText(tvJoke.getText().toString(), tvJoke.getText().toString());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(getActivity(), "Copied.", Toast.LENGTH_SHORT).show();
+            }
+        });
+        floatingButton = (FloatingActionButton) view.findViewById(R.id.floatingButton);
+        floatingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mListener != null){
+                    mListener.gotoCreateAJoke();
+                }
+            }
+        });
+    }
+
+
     public void loadLikes(final ParseObject parseObject){
         ParseQuery<ParseObject> query = ParseQuery.getQuery(ParseDataStructure.LikeTableName);
         query.whereEqualTo(ParseDataStructure.LikeJokeID, parseObject.getObjectId());
@@ -128,7 +176,7 @@ public class JokeOfTheDayFragment extends Fragment {
             public void done(List<ParseObject> scoreList, ParseException e) {
                 if (e == null) {
                     Log.i(TAG, "Retrieved " + scoreList.size() + " like on the post : " + parseObject.getObjectId());
-                    btnLike.setText("Like (" + scoreList.size() +")");
+                    btnLike.setText("Like (" + scoreList.size() + ")");
                 } else {
                     Log.e(TAG, "Error: " + e.getMessage());
                 }
@@ -172,8 +220,8 @@ public class JokeOfTheDayFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(Uri uri);
+        void gotoCreateAJoke();
     }
 
 }

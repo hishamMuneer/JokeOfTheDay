@@ -3,6 +3,7 @@ package com.hisham.jokeoftheday.ui;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.net.Uri;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -17,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.hisham.jokeoftheday.R;
 import com.parse.ParseObject;
@@ -204,6 +206,9 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
 
         actionBarDrawerToggle.syncState();
 
+        NavigationView navigationView = (NavigationView)findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(navigationItemSelectedListener);
+
         fragmentManager = getFragmentManager();
         fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -241,6 +246,7 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
+
             case android.R.id.home:
                 if(mDrawerLayout.isDrawerOpen(GravityCompat.START)){
                     mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -248,23 +254,72 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
                     mDrawerLayout.openDrawer(GravityCompat.START);
                 }
                 return true;
-            case R.id.action_settings:
-                fragmentTransaction = fragmentManager.beginTransaction();
-                SubmitAJokeFragment submitAJokeFragment = new SubmitAJokeFragment();
-                // Replace whatever is in the fragment_container view with this fragment,
-                // and add the transaction to the back stack if needed
-                fragmentTransaction.replace(R.id.fragment_container, submitAJokeFragment);
-                fragmentTransaction.addToBackStack(null);
-
-                // Commit the transaction
-                fragmentTransaction.commit();
-                return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * It stores the currently checked navigation menu item id, so that you don't have to load the fragment again.
+     */
+    private int currentMenuItemId = R.id.action_joke_of_the_day;
+
+    /**
+     * This is the side navigation listener, when you click on the drawer items, it gets called.
+     */
+    NavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = new NavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(MenuItem menuItem) {
+            if(menuItem.getItemId() == currentMenuItemId){
+
+            } else {
+                switch (menuItem.getItemId()) {
+                    case R.id.action_joke_of_the_day:
+                        fragmentTransaction = fragmentManager.beginTransaction();
+                        JokeOfTheDayFragment jokeOfTheDayFragment = new JokeOfTheDayFragment();
+                        // Replace whatever is in the fragment_container view with this fragment,
+                        // and add the transaction to the back stack if needed
+                        fragmentTransaction.replace(R.id.fragment_container, jokeOfTheDayFragment);
+                        fragmentTransaction.addToBackStack(null);
+
+                        // Commit the transaction
+                        fragmentTransaction.commit();
+                        break;
+
+                    case R.id.action_submit_a_joke:
+                        showSubmitAJokeFragment();
+                        break;
+                    default:
+                        Toast.makeText(HomeActivity.this, "No action found against this action.", Toast.LENGTH_SHORT).show();
+                        break;
+                } // switch ends
+                menuItem.setChecked(true);
+            } // else ends
+            // utlimately close the drawer
+            mDrawerLayout.closeDrawer(GravityCompat.START);
+            // finally set the selected item as current menu item
+            currentMenuItemId = menuItem.getItemId();
+            return true;
+        }
+    };
+
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public void gotoCreateAJoke() {
+        showSubmitAJokeFragment();
+    }
+
+    private void showSubmitAJokeFragment() {
+        fragmentTransaction = fragmentManager.beginTransaction();
+        SubmitAJokeFragment submitAJokeFragment = new SubmitAJokeFragment();
+        // Replace whatever is in the fragment_container view with this fragment,
+        // and add the transaction to the back stack if needed
+        fragmentTransaction.replace(R.id.fragment_container, submitAJokeFragment);
+        fragmentTransaction.addToBackStack(null);
+        // Commit the transaction
+        fragmentTransaction.commit();
     }
 }
