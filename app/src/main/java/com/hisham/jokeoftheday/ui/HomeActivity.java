@@ -183,7 +183,7 @@ import com.parse.ParseUser;
 
 public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragment.OnFragmentInteractionListener, SubmitAJokeFragment.OnFragmentInteractionListener {
 
-    private static final String TAG = HomeActivity.class.getSimpleName().toString();
+    private static final String TAG = HomeActivity.class.getSimpleName();
     private DrawerLayout mDrawerLayout;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
@@ -270,7 +270,7 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
         @Override
         public boolean onNavigationItemSelected(MenuItem menuItem) {
             if(menuItem.getItemId() == currentMenuItemId){
-
+                // no action should be performed.
             } else {
                 switch (menuItem.getItemId()) {
                     case R.id.action_joke_of_the_day:
@@ -290,7 +290,7 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
                         break;
                     default:
                         Toast.makeText(HomeActivity.this, "No action found against this action.", Toast.LENGTH_SHORT).show();
-                        break;
+                        return false;
                 } // switch ends
                 menuItem.setChecked(true);
             } // else ends
