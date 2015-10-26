@@ -294,7 +294,7 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
                 } // switch ends
                 menuItem.setChecked(true);
             } // else ends
-            // utlimately close the drawer
+            // ultimately close the drawer
             mDrawerLayout.closeDrawer(GravityCompat.START);
             // finally set the selected item as current menu item
             currentMenuItemId = menuItem.getItemId();

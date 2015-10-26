@@ -1,61 +1,15 @@
 <resources>
     <string name="app_name">Joke of the Day</string>
-
     <string name="action_settings">Settings</string>
-    <string name="header_text">This is Header</string>
-    <string name="title_activity_my_list">MyListActivity</string>
-    <string name="item_1">Item 1</string>
-    <string name="item_2">Item 2</string>
-
     <string name="close">Close</string>
     <string name="open">Open</string>
-
-    <string name="sub_header">Sub Header</string>
-    <string name="sub_item_1">Sub Item 1</string>
-    <string name="sub_item_2">Sub Item 2</string>
-    <string name="title_activity_floating_labels">FloatingLabelsActivity</string>
-    <string name="hint_float_label">This edit text has a floating label.</string>
-    <string name="hint_float_label_why">While an EditText alone will hide the hint text after the first character is typed, you can now wrap it in a TextInputLayout, causing the hint text to become a floating label above the EditText, ensuring that users never lose context in what they are entering.</string>
-    <string name="title_activity_floating_action_button">FloatingActionButtonActivity</string>
-    <string name="title_activity_tab_layout">TabLayoutActivity</string>
-    <string name="title_activity_coordinator_layout">CoordinatorLayoutActivity</string>
-    <string name="collapsing_toolbars">Collapsing Toolbars</string>
-    <string name="lorem_ipsum_long">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequens enim est et post oritur, ut dixi. Illa tamen simplicia, vestra versuta. Sic vester sapiens magno aliquo emolumento commotus cicuta, si opus erit, dimicabit. Teneo, inquit, finem illi videri nihil dolere. Hoc loco tenere se Triarius non potuit. Ubi ut eam caperet aut quando? Quod cum dixissent, ille contra. Non dolere, inquam, istud quam vim habeat postea videro; Si longus, levis dictata sunt. Non enim quaero quid verum, sed quid cuique dicendum sit. Multoque hoc melius nos veriusque quam Stoici. Facile est hoc cernere in primis puerorum aetatulis. Hoc Hieronymus summum bonum esse dixit. Quo invento omnis ab eo quasi capite de summo bono et malo disputatio ducitur. Oratio me istius philosophi non offendit; Ita fit cum gravior, tum etiam splendidior oratio. De illis, cum volemus. Gerendus est mos, modo recte sentiat. Tum Piso: Quoniam igitur aliquid omnes, quid Lucius noster? Sed tamen intellego quid velit. Quis non odit sordidos, vanos, leves, futtiles? Te ipsum, dignissimum maioribus tuis, voluptasne induxit, ut adolescentulus eriperes P. Traditur, inquit, ab Epicuro ratio neglegendi doloris. Solum praeterea formosum, solum liberum, solum civem, stultost; Nunc haec primum fortasse audientis servire debemus. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Deprehensus omnem poenam contemnet. Hoc Hieronymus summum bonum esse dixit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequens enim est et post oritur, ut dixi. Illa tamen simplicia, vestra versuta. Sic vester sapiens magno aliquo emolumento commotus cicuta, si opus erit, dimicabit. Teneo, inquit, finem illi videri nihil dolere. Hoc loco tenere se Triarius non potuit. Ubi ut eam caperet aut quando? Quod cum dixissent, ille contra. Non dolere, inquam, istud quam vim habeat postea videro; Si longus, levis dictata sunt. Non enim quaero quid verum, sed quid cuique dicendum sit. Multoque hoc melius nos veriusque quam Stoici. Facile est hoc cernere in primis puerorum aetatulis. Hoc Hieronymus summum bonum esse dixit. Quo invento omnis ab eo quasi capite de summo bono et malo disputatio ducitur. Oratio me istius philosophi non offendit; Ita fit cum gravior, tum etiam splendidior oratio. De illis, cum volemus. Gerendus est mos, modo recte sentiat. Tum Piso: Quoniam igitur aliquid omnes, quid Lucius noster? Sed tamen intellego quid velit. Quis non odit sordidos, vanos, leves, futtiles? Te ipsum, dignissimum maioribus tuis, voluptasne induxit, ut adolescentulus eriperes P. Traditur, inquit, ab Epicuro ratio neglegendi doloris. Solum praeterea formosum, solum liberum, solum civem, stultost; Nunc haec primum fortasse audientis servire debemus. Qui-vere falsone, quaerere mittimus-dicitur oculis se privasse; Deprehensus omnem poenam contemnet. Hoc Hieronymus summum bonum esse dixit.</string>
-
-    <string name="cheese_ipsum">Jarlsberg lancashire edam. Dolcelatte hard cheese brie st. agur blue
-    cheese caerphilly bavarian bergkase cheese and biscuits mascarpone. Cheeseburger swiss bavarian
-    bergkase cream cheese fromage frais cheesy feet port-salut airedale. St. agur blue cheese rubber
-    cheese caerphilly cheddar cheesecake cream cheese manchego lancashire. Roquefort squirty cheese
-    the big cheese.</string>
-    <string name="title_activity_pallete">PalleteActivity</string>
-    <string name="title_activity_social_login">GoogleLoginActivity</string>
     <string name="facebook_app_id">1032427670102455</string>
-    <string name="title_activity_facebook_login">FacebookLoginActivity</string>
-    <string name="id">Id</string>
-    <string name="name">Name</string>
-    <string name="email">Email</string>
-    <string name="Gender">Gender</string>
-    <string name="dob">DOB</string>
-    <string name="info">Info</string>
-    <string name="freinds">Friends</string>
-    <string name="related">Related</string>
-    <string name="press_me">Press Me</string>
-    <string name="color_change_message">Color of this text changes base on color along with the background color. Click on Image for more</string>
-    <string name="disconnect_account">Disconnect Account</string>
-    <string name="user_details">User Details:</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_splash_screen">SplashScreen</string>
-    <string name="splash_quote_small">We just don\'t build a business. We build a</string>
-    <string name="title_activity_activity_our_story">ActivityOurStory</string>
-    <string name="out_story_content"><![CDATA[SAAR Advertising & Marketing, an initiative by Syed Ali was built in 2010 and is now recognized as a media & market management firm. \nOur team’s endeavour is to generate creative solutions to the needs of our client. \nWe deliver to create a b-usiness to be a B-RAND. \nSAAR is a consortium with specialized services in- 360 degree media & brand management with master package in Branding and MICE (Meeting, Incentives, Conventions and Expositions) Events. \nWhether you are a digital publisher, online retailer, or have an exceptional proposition that could be bundled with another offering; we can help you select, secure and drive your partnership marketing activities to achieve the results you are looking for.]]></string>
-    <string name="title_activity_home">Home</string>
 
 <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="home">Home</string>
     <string name="joke_of_the_day">Joke of the Day</string>
     <string name="post_a_joke">Post a Joke</string>
     <string name="all_jokes">All Jokes</string>
+    <string name="title_activity_home">Home</string>
 
 
 </resources>
