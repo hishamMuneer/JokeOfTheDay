@@ -19,7 +19,10 @@ import com.hisham.jokeoftheday.R;
 import com.hisham.jokeoftheday.utils.ParseDataStructure;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,7 +37,7 @@ public class SubmitAJokeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private static final String TAG = SubmitAJokeFragment.class.getSimpleName().toString();
+    private static final String TAG = SubmitAJokeFragment.class.getSimpleName();
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -98,18 +101,24 @@ public class SubmitAJokeFragment extends Fragment {
                 
                 progressBarSubmit.setVisibility(View.VISIBLE);
                 btnSubmit.setVisibility(View.GONE);
-                ParseObject testObject = new ParseObject(ParseDataStructure.JokeTableName);
-                testObject.put(ParseDataStructure.JokeColJokeTitle, etJokeTitle.getText().toString());
-                testObject.put(ParseDataStructure.JokeColJokeText, etJokeText.getText().toString());
+                ParseObject submitAJokeObject = new ParseObject(ParseDataStructure.JokeTableName);
+                submitAJokeObject.put(ParseDataStructure.JokeColJokeTitle, etJokeTitle.getText().toString());
+                submitAJokeObject.put(ParseDataStructure.JokeColJokeText, etJokeText.getText().toString());
+                String userObjectId = ParseUser.getCurrentUser().getObjectId();
+                if(TextUtils.isEmpty(userObjectId)){
+                    submitAJokeObject.put(ParseDataStructure.JokeUserObjectID, null);
+                } else {
+                    submitAJokeObject.put(ParseDataStructure.JokeUserObjectID, userObjectId);
+                }
 
-                testObject.saveInBackground(new SaveCallback() {
+                submitAJokeObject.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
                         progressBarSubmit.setVisibility(View.GONE);
                         btnSubmit.setVisibility(View.VISIBLE);
                         textInputLayoutJokeText.setError("");
                         // is e is null, means no exception, that's why successful.
-                        if(e == null){
+                        if (e == null) {
                             etJokeTitle.setText("");
                             etJokeText.setText("");
                             Log.e(TAG, "Post updated successfully");
@@ -183,7 +192,7 @@ public class SubmitAJokeFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(Uri uri);
     }
 
 }

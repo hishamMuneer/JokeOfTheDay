@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top"
-            android:text="Title of the Joke"
+            android:text=""
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:gravity="center" />
 
@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|top"
-            android:text=""
+            android:text="Loading..."
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:gravity="center"
              />
@@ -39,9 +39,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Submitted by: Hisham"
+            android:text="by: Loading..."
             android:id="@+id/tvSubmittedBy"
-            android:padding="@dimen/dp16"
+            android:paddingTop="@dimen/dp8"
+            android:gravity="right|bottom"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Likes: Loading..."
+            android:id="@+id/tvTotalLikes"
+            android:paddingBottom="@dimen/dp8"
             android:gravity="right|bottom"/>
 
         <LinearLayout

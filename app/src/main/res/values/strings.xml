@@ -10,6 +10,12 @@
     <string name="post_a_joke">Post a Joke</string>
     <string name="all_jokes">All Jokes</string>
     <string name="title_activity_home">Home</string>
+    <string name="likes_count">"likes: "</string>
+    <string name="liked">Liked</string>
+    <string name="copied">Copied.</string>
+    <string name="share_this_joke">Share this joke.</string>
+    <string name="by">"by: "</string>
+    <string name="anonymous">Anonymous</string>
 
 
 </resources>

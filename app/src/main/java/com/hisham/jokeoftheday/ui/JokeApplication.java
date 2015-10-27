@@ -3,6 +3,7 @@ package com.hisham.jokeoftheday.ui;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseUser;
 
 /**
  * Created by hisham on 10/15/2015.
@@ -15,6 +16,10 @@ public class JokeApplication extends Application {
         Parse.enableLocalDatastore(this);
 
         Parse.initialize(this, "mvraFXbOjlvFZ7XN5yLL6R99MjTd58CRcHkXlRvb", "kUmvNPeN8GuGeT7opwPBFqKN9KBC9XwqrzTfYVXT");
+
+        ParseUser.enableAutomaticUser();
+        ParseUser.getCurrentUser().increment("RunCount");
+        ParseUser.getCurrentUser().saveInBackground();
 
     }
 }
