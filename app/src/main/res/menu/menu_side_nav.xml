@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.hisham.jokeoftheday.ui.HomeActivity">
 
+    <!--You can make below icons from here-->
+    <!--https://romannurik.github.io/AndroidAssetStudio/icons-actionbar.html-->
+
     <group
         android:id="@+id/group_side_nav"
         android:checkableBehavior="single">
