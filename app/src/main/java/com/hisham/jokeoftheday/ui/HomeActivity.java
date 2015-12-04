@@ -181,7 +181,8 @@ import com.parse.ParseUser;
  *
  */
 
-public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragment.OnFragmentInteractionListener, SubmitAJokeFragment.OnFragmentInteractionListener {
+public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragment.OnFragmentInteractionListener,
+        SubmitAJokeFragment.OnFragmentInteractionListener, AllJokesListFragment.OnFragmentInteractionListener {
 
     private static final String TAG = HomeActivity.class.getSimpleName();
     private DrawerLayout mDrawerLayout;
@@ -210,12 +211,11 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
         navigationView.setNavigationItemSelectedListener(navigationItemSelectedListener);
 
         fragmentManager = getFragmentManager();
-        fragmentTransaction = fragmentManager.beginTransaction();
 
+        fragmentTransaction = fragmentManager.beginTransaction();
         JokeOfTheDayFragment jokeOfTheDayFragment = new JokeOfTheDayFragment();
         fragmentTransaction.add(R.id.fragment_container, jokeOfTheDayFragment);
         fragmentTransaction.commit();
-
 
 
 //        SubmitAJokeFragment submitAJokeFragment = new SubmitAJokeFragment();
@@ -246,7 +246,6 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
-
             case android.R.id.home:
                 if(mDrawerLayout.isDrawerOpen(GravityCompat.START)){
                     mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -270,30 +269,44 @@ public class HomeActivity extends AppCompatActivity implements JokeOfTheDayFragm
         @Override
         public boolean onNavigationItemSelected(MenuItem menuItem) {
             if(menuItem.getItemId() == currentMenuItemId){
-                // no action should be performed.
-            } else {
-                switch (menuItem.getItemId()) {
-                    case R.id.action_joke_of_the_day:
-                        fragmentTransaction = fragmentManager.beginTransaction();
-                        JokeOfTheDayFragment jokeOfTheDayFragment = new JokeOfTheDayFragment();
-                        // Replace whatever is in the fragment_container view with this fragment,
-                        // and add the transaction to the back stack if needed
-                        fragmentTransaction.replace(R.id.fragment_container, jokeOfTheDayFragment);
-                        fragmentTransaction.addToBackStack(null);
+                // no action should be performed. just close the drawer
+                mDrawerLayout.closeDrawer(GravityCompat.START);
+                return true;
+            }
+            switch (menuItem.getItemId()) {
+                case R.id.action_joke_of_the_day:
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    JokeOfTheDayFragment jokeOfTheDayFragment = new JokeOfTheDayFragment();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack if needed
+                    fragmentTransaction.replace(R.id.fragment_container, jokeOfTheDayFragment);
+                    fragmentTransaction.addToBackStack("JokeOfTheDayFragment");
+                    // Commit the transaction
+                    fragmentTransaction.commit();
+                    break;
 
-                        // Commit the transaction
-                        fragmentTransaction.commit();
-                        break;
+                case R.id.action_submit_a_joke:
+                    showSubmitAJokeFragment();
+                    break;
 
-                    case R.id.action_submit_a_joke:
-                        showSubmitAJokeFragment();
-                        break;
-                    default:
-                        Toast.makeText(HomeActivity.this, "No action found against this action.", Toast.LENGTH_SHORT).show();
-                        return false;
-                } // switch ends
-                menuItem.setChecked(true);
-            } // else ends
+                case R.id.action_all_jokes:
+                    fragmentTransaction = fragmentManager.beginTransaction();
+                    AllJokesListFragment allJokesListFragment = new AllJokesListFragment();
+                    // Replace whatever is in the fragment_container view with this fragment,
+                    // and add the transaction to the back stack if needed
+                    fragmentTransaction.replace(R.id.fragment_container, allJokesListFragment);
+                    fragmentTransaction.addToBackStack("AllJokesListFragment");
+                    // Commit the transaction
+                    fragmentTransaction.commit();
+                    break;
+
+
+                default:
+                    Toast.makeText(HomeActivity.this, "No action found against this action.", Toast.LENGTH_SHORT).show();
+                    return false;
+            } // switch ends
+            menuItem.setChecked(true);
+
             // ultimately close the drawer
             mDrawerLayout.closeDrawer(GravityCompat.START);
             // finally set the selected item as current menu item

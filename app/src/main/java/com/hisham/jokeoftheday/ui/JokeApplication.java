@@ -19,6 +19,7 @@ public class JokeApplication extends Application {
 
         ParseUser.enableAutomaticUser();
         ParseUser.getCurrentUser().increment("RunCount");
+//        ParseUser.getCurrentUser().setEmail();
         ParseUser.getCurrentUser().saveInBackground();
 
     }

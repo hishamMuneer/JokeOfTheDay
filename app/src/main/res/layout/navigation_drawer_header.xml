@@ -10,4 +10,5 @@
         android:text="Header"
         android:gravity="center"
         android:id="@+id/tv_header" />
+
 </LinearLayout>
