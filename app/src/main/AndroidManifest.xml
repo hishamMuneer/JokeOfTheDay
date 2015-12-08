@@ -17,7 +17,7 @@ android:name=".ui.JokeApplication"
 
         <activity
             android:name=".ui.HomeActivity"
-            android:label="@string/title_activity_home" >
+            android:label="@string/joke_of_the_day" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

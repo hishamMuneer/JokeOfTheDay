@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.text.TextUtils;
 import android.util.Log;
@@ -18,17 +19,18 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.hisham.jokeoftheday.R;
 import com.hisham.jokeoftheday.utils.ParseDataStructure;
 import com.parse.FindCallback;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.List;
@@ -163,11 +165,51 @@ public class JokeOfTheDayFragment extends Fragment {
         return view;
     }
 
+    private AdView adView;
+    private InterstitialAd mInterstitialAd;
+
+    /**
+     * To load google ads
+     * @param view
+     */
+    private void LoadAds(View view) {
+        // Look up the AdView as a resource and load a request.
+        adView = (AdView) view.findViewById(R.id.adView);
+        mInterstitialAd = new InterstitialAd(getActivity().getApplicationContext());
+        mInterstitialAd.setAdUnitId(getResources().getString(R.string.ad_fullscreen_id));
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+        adView.setVisibility(View.GONE);
+        adView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                super.onAdLoaded();
+                adView.setVisibility(View.VISIBLE);
+            }
+        });
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                requestNewInterstitial();
+            }
+        });
+        requestNewInterstitial();
+    }
+
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("42B33721C201BA96C66T64DC1148B778")
+//                .addTestDevice("42B33321C001BF96C66C64DC1148B778") // Yuphoria
+                .build();
+
+        mInterstitialAd.loadAd(adRequest);
+    }
+
     /**
      * Initialize all the views used on this fragment
      * @param view
      */
-    private void initViews(View view) {
+    private void initViews(final View view) {
         tvTitle = (TextView) view.findViewById(R.id.tvTitle);
         tvJoke = (TextView) view.findViewById(R.id.tvJoke);
         tvSubmittedBy = (TextView) view.findViewById(R.id.tvSubmittedBy);
@@ -216,6 +258,11 @@ public class JokeOfTheDayFragment extends Fragment {
                 ClipData clip = ClipData.newPlainText(tvJoke.getText().toString(), tvJoke.getText().toString());
                 clipboard.setPrimaryClip(clip);
                 Toast.makeText(getActivity(), R.string.copied, Toast.LENGTH_SHORT).show();
+
+                // Showing interstitial ad now
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                }
             }
         });
         floatingButton = (FloatingActionButton) view.findViewById(R.id.floatingButton);
@@ -227,6 +274,9 @@ public class JokeOfTheDayFragment extends Fragment {
                 }
             }
         });
+
+        // loading ads
+        LoadAds(view);
     }
 
 
@@ -273,6 +323,27 @@ public class JokeOfTheDayFragment extends Fragment {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if(adView != null)
+            adView.pause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(adView != null)
+            adView.resume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if(adView != null)
+            adView.destroy();
     }
 
     @Override

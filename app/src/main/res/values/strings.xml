@@ -5,7 +5,6 @@
     <string name="open">Open</string>
     <string name="facebook_app_id">1032427670102455</string>
 
-<!-- TODO: Remove or change this placeholder text -->
     <string name="joke_of_the_day">Joke of the Day</string>
     <string name="post_a_joke">Post a Joke</string>
     <string name="all_jokes">All Jokes</string>
@@ -17,8 +16,12 @@
     <string name="by">"by: "</string>
     <string name="anonymous">Anonymous</string>
 
-<!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- Ad units -->
+    <string name="ad_banner_id">ca-app-pub-1590664686760927/9250725493</string>
+    <string name="ad_fullscreen_id">ca-app-pub-1590664686760927/1727458690</string>
 
 
 </resources>
