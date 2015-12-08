@@ -21,7 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_gravity="start"
         android:fitsSystemWindows="false"
-        app:headerLayout="@layout/navigation_drawer_header"
         app:menu="@menu/menu_side_nav"/>
+        <!-- Header commented, put inside NavigationView to make working-->
+        <!--app:headerLayout="@layout/navigation_drawer_header"-->
 
 </android.support.v4.widget.DrawerLayout>
